@@ -1,10 +1,15 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+
 /* styles.css */
 body {
-  font-family: 'Dosis', sans-serif; 
+  font-family: 'Patrick Hand', sans-serif; 
   color: #333;
   margin: 0;
   padding: 0;

@@ -11,6 +11,9 @@ module.exports = {
 
   theme: {
     extend: {
+      fontFamily: {
+        notebook: ['Patrick Hand', 'sans-serif'],
+      },
       backgroundImage: {
         'book-pattern': "url('./img/book-pattern.jpg')",
       },

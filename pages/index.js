@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <div className="bg-container flex flex-col items-center p-5 max-w-full h-screen overflow-y-auto">
-      <div id="page-title" className="text-center mb-5 text-white font-bold text-3xl shadow-md p-4 rounded-md bg-gradient-to-r from-red-500 to-purple-700 ">
+      <div id="page-title" className="text-center mb-5 text-white font-extrabold text-5xl shadow-md p-4 rounded-md bg-none ">
         YOUR HANDY & VERY PORTABLE JOURNAL/DIARY
       </div>
       <div id="search-bar" className="mb-5 w-full max-w-lg">
@@ -43,7 +43,7 @@ export default function Home() {
       </div>
       <div id="add-entry" className="mb-5">
         <Link href="/newEntry" passHref>
-          <button className="rounded-lg px-6 py-3 bg-gradient-to-r from-red-500 to-purple-700 text-white font-bold text-lg transition-transform transform hover:bg-purple-700 hover:scale-105">
+          <button className="rounded-md px-6 py-3 bg-gradient-to-r from-red-500 to-purple-700 text-white font-bold text-lg transition-transform transform hover:bg-purple-700 hover:scale-105 uppercase">
             Add New Entry
           </button>
         </Link>
@@ -52,7 +52,7 @@ export default function Home() {
         {filteredEntries.map(entry => (
           <li key={entry.id} className="mb-5">
             <Link href={`/${entry.id}`} passHref>
-              <div className="flex flex-col items-center border-2 border-purple-700 rounded-lg shadow-lg p-6 bg-none transition-transform transform hover:translate-y-[-5px] hover:shadow-xl">
+              <div className="flex flex-col items-center border-2 border-purple-700 rounded-lg shadow-lg p-6 bg-none transition-transform transform hover:translate-y-[-5px] hover:shadow-xl uppercase">
                 <div className="text-white text-4xl font-bold mb-2 uppercase text-center">
                   {entry.title}
                 </div>

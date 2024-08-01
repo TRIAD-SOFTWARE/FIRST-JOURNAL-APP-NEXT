@@ -29,57 +29,62 @@ export default function NewEntry() {
   };
 
   return (
-    <div>
-      <h1>ADD NEW ENTRY</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Date:
+    <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-10 uppercase">
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">Add New Entry</h1>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Date:</label>
           <input
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
             required
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-lg py-4 px-4 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
-        </label>
-        <br />
-        <label>
-          Title:
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Title:</label>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-lg py-4 px-4 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
-        </label>
-        <br />
-        <label>
-          Content:
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Content:</label>
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
             required
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-lg py-4 px-4 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           ></textarea>
-        </label>
-        <br />
-        <label>
-          Mood:
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Mood:</label>
           <input
             type="text"
             value={mood}
             onChange={(e) => setMood(e.target.value)}
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-lg py-4 px-4 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
-        </label>
-        <br />
-        <label>
-          Tags (comma separated):
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Tags (comma separated):</label>
           <input
             type="text"
             value={tags}
             onChange={(e) => setTags(e.target.value)}
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-lg py-4 px-4 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
-        </label>
-        <br />
-        <button type="submit">Add Entry</button>
+        </div>
+        <button
+          type="submit"
+          className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          Add Entry
+        </button>
       </form>
     </div>
   );
