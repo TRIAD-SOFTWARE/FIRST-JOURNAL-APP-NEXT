@@ -1,0 +1,8 @@
+#INSTALLING TAILWIND
+
+>npm install tailwindcss postcss autoprefixer
+
+#initializing TAILWIND
+
+>npx tailwindcss init -p
+

@@ -31,5 +31,17 @@
       "TEST",
       "SCROLL"
     ]
+  },
+  {
+    "id": "472ac154-504f-4f17-94f5-112769158bc6",
+    "date": "2024-08-01",
+    "title": "TAILWIND SHENANIGANS",
+    "content": "NOT WORKING",
+    "mood": "SLIGHTLY ANGRY",
+    "tags": [
+      "STYLE",
+      "TAILWIND",
+      "CSS"
+    ]
   }
 ]

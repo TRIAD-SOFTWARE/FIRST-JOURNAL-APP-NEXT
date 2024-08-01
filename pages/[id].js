@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import Link from 'next/link'; // Import Link component from Next.js
-import styles from './styles.css'; // Import your styles
+import Link from 'next/link';
+import '../styles/styles.css'
 
 const EntryDetail = () => {
   const router = useRouter();
@@ -73,79 +73,108 @@ const EntryDetail = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="text-center text-lg text-gray-500">Loading...</div>;
   }
 
   if (!entry) {
-    return <div>Entry not found</div>;
+    return <div className="text-center text-lg text-red-500">Entry not found</div>;
   }
 
   return (
-    <div className="container">
+    <div className="px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto my-8 bg-white rounded-lg shadow-lg p-6">
       {isEditing ? (
-        <form onSubmit={handleUpdate}>
-          <label>
-            Date:
+        <form onSubmit={handleUpdate} className="space-y-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Date:</label>
             <input
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
               required
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             />
-          </label>
-          <br />
-          <label>
-            Title:
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Title:</label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             />
-          </label>
-          <br />
-          <label>
-            Content:
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Content:</label>
             <textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
               required
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             ></textarea>
-          </label>
-          <br />
-          <label>
-            Mood:
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Mood:</label>
             <input
               type="text"
               value={mood}
               onChange={(e) => setMood(e.target.value)}
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             />
-          </label>
-          <br />
-          <label>
-            Tags (comma separated):
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Tags (comma separated):</label>
             <input
               type="text"
               value={tags}
               onChange={(e) => setTags(e.target.value)}
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             />
-          </label>
-          <br />
-          <button type="submit">Save Changes</button>
-          <button type="button" onClick={() => setIsEditing(false)}>Cancel</button>
+          </div>
+          <div className="flex space-x-4">
+            <button
+              type="submit"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Save Changes
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsEditing(false)}
+              className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-gray-700 bg-gray-200 shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+            >
+              Cancel
+            </button>
+          </div>
         </form>
       ) : (
-        <div className="entry-detail">
-          <h1 className="entry-title">{entry.title}</h1>
-          <div className="entry-date">Date: {entry.date}</div>
-          <div className="entry-mood">Mood: {entry.mood}</div>
-          <div className="entry-tags">Tags: {entry.tags.join(', ')}</div>
-          <div className="entry-content">{entry.content}</div>
-          <button onClick={handleDelete}>Delete Entry</button>
-          <button onClick={() => setIsEditing(true)}>Edit Entry</button>
-          <Link href="/" passHref>
-            <button id="back-to-home">Back to Home</button>
-          </Link>
+        <div className="space-y-4">
+          <h1 className="text-2xl font-bold text-gray-900 uppercase">{entry.title}</h1>
+          <div className="text-md text-gray-500 uppercase">Date: {entry.date}</div>
+          <div className="text-md text-gray-500 uppercase">Mood: {entry.mood}</div>
+          <div className="text-smd text-gray-500 uppercase">Tags: {entry.tags.join(', ')}</div>
+          <div className="text-gray-700 uppercase border-2 border-black rounded-lg px-4 py-4">{entry.content}</div>
+          <div className="flex space-x-4 mt-4">
+            <button
+              onClick={handleDelete}
+              className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-red-600 shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            >
+              Delete Entry
+            </button>
+            <button
+              onClick={() => setIsEditing(true)}
+              className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-indigo-100 shadow-sm hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Edit Entry
+            </button>
+            <Link href="/" passHref>
+              <button
+                className="inline-flex items-center px-4 py-2 rounded-md  bg-gradient-to-r from-red-500 to-purple-700 text-white font-bold text-lg transition-transform transform hover:bg-purple-700 hover:scale-105"
+              >
+                Back to Home
+              </button>
+            </Link>
+          </div>
         </div>
       )}
     </div>
