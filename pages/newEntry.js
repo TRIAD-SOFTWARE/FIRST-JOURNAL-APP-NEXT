@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/router';
+import '../styles/styles.css'
 
 export default function NewEntry() {
   const [date, setDate] = useState('');
